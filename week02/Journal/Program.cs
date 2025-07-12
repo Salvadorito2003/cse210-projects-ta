@@ -3,6 +3,8 @@ using System.Xml.Serialization;
 
 class Program
 {
+    /*I added a question to see if the user wants a question or just wants to write something. */
+    /*I also added lines to tell the user what the computer is doing ("Loading file", "Saving the following entries", etc.)*/
     static void Main(string[] args)
     {
         Journal _myJournal = new Journal();
@@ -27,15 +29,25 @@ class Program
             }
             else if (choice == 3)
             {
-                break
+                Console.Write("Enter Filename: ");
+                string fileName = Console.ReadLine();
+                Console.WriteLine("Loading file...");
+                Console.WriteLine("");
+                _myJournal.LoadFromFile(fileName);
             }
             else if (choice == 4)
             {
-                
+                Console.Write("Enter Filename: ");
+                string fileName = Console.ReadLine();
+                _myJournal.SaveToFile(fileName);
             }
             else if (choice == 5)
             {
                 break;
+            }
+            else
+            {
+                Console.WriteLine("That is not an option.");
             }
         }
 
